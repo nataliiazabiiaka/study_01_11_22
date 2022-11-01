@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_01_11_22/model/meal.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -75,13 +76,13 @@ class ProfileScreen extends StatelessWidget {
               height: height,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children:  [
+                children: [
                   const Padding(
-                      padding: EdgeInsets.only(
-                        bottom: 8,
-                        left: 32,
-                        right: 16,
-                      ),
+                    padding: EdgeInsets.only(
+                      bottom: 8,
+                      left: 32,
+                      right: 16,
+                    ),
                     child: Text(
                       'MEALS FOR TODAY',
                       style: TextStyle(
@@ -92,14 +93,18 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                      child: SingleChildScrollView(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-
+                          const SizedBox(width: 32),
+                          for (int i = 0; i < meals.length; i++)
+                            _MealCard(meal: meals[i]),
                         ],
                       ),
-                      ),
+                    ),
                   ),
+                  const SizedBox(height: 20),
                   Expanded(
                     child: Container(
                       color: Colors.blueAccent,
@@ -116,12 +121,51 @@ class ProfileScreen extends StatelessWidget {
 }
 
 class _MealCard extends StatelessWidget {
-  const _MealCard({Key? key}) : super(key: key);
+  const _MealCard({Key? key, required this.meal}) : super(key: key);
+
+  final Meal meal;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Material(),
+      margin: const EdgeInsets.only(
+        right: 20,
+        bottom: 10,
+      ),
+      child: Material(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        elevation: 4,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Flexible(
+              fit: FlexFit.tight,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(20),
+                ),
+                  child: Image.asset(
+                      meal.imagePath,
+                    width: 150,
+                    fit: BoxFit.fitHeight,
+                  ),
+              ),
+            ),
+            Flexible(
+              fit: FlexFit.tight,
+              child: Column(
+                children: [
+                  Text(meal.mealTime),
+                  Text(meal.name),
+                  Text(meal.kiloCaloriesBurnt),
+                  Text(meal.timeTaken),
+                  const SizedBox(height: 16),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
