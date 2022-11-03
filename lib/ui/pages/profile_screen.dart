@@ -316,15 +316,19 @@ class _IngredientProgress extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              height: 10,
-              width: width,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                    Radius.circular(5),
+            Stack(
+              children: [
+               Container(
+                height: 10,
+                width: width,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(5),
+                  ),
+                  color: Colors.grey,
                 ),
-                color: Colors.grey,
               ),
+             ],
             ),
             const SizedBox(width: 10),
              Text(
