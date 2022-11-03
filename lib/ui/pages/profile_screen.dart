@@ -325,9 +325,19 @@ class _IngredientProgress extends StatelessWidget {
                   borderRadius: BorderRadius.all(
                       Radius.circular(5),
                   ),
-                  color: Colors.grey,
+                  color: Colors.black12,
                 ),
               ),
+                Container(
+                  height: 10,
+                  width: width * progress,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(5),
+                    ),
+                  ),
+                  color: progressColor,
+                ),
              ],
             ),
             const SizedBox(width: 10),
