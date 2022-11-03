@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:study_01_11_22/model/meal.dart';
+import 'package:vector_math/vector_math_64.dart' as math;
+import 'package:intl/intl.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -7,6 +9,9 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    final today = DateTime.now();
+
     return Scaffold(
       backgroundColor: const Color(0xFFE9E9E9),
       bottomNavigationBar: ClipRRect(
@@ -71,18 +76,18 @@ class ProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ListTile(
-                      title: const Text(
-                        'Date, Year',
-                        style: TextStyle(
+                      title: Text(
+                        '${DateFormat('EEEE').format(today)}, ${DateFormat('d MMMM').format(today)}',
+                        style: const TextStyle(
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: 18,
                         ),
                       ),
                       subtitle: const Text(
                         'Hello, David',
                         style: TextStyle(
                           fontWeight: FontWeight.w800,
-                          fontSize: 18,
+                          fontSize: 26,
                           color: Colors.black,
                         ),
                       ),
@@ -95,7 +100,45 @@ class ProfileScreen extends StatelessWidget {
                     _RadialProgress(
                       width: height * 0.2,
                       height: height * 0.2,
+                      progress: 0.7,
                     ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _IngredientProgress(
+                          ingredient: "Protein",
+                          progress: 0.3,
+                          progressColor: Colors.green,
+                          leftAmount: 72,
+                          width: width * 0.28,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _IngredientProgress(
+                          ingredient: "Carbs",
+                          progress: 0.2,
+                          progressColor: Colors.red,
+                          leftAmount: 252,
+                          width: width * 0.28,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _IngredientProgress(
+                          ingredient: "Fat",
+                          progress: 0.1,
+                          progressColor: Colors.yellow,
+                          leftAmount: 61,
+                          width: width * 0.28,
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -250,19 +293,93 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
-class _RadialProgress extends StatelessWidget {
-  final double height, width;
+class _IngredientProgress extends StatelessWidget {
+  final String ingredient;
+  final int leftAmount;
+  final double progress, width;
+  final Color progressColor;
+  const _IngredientProgress({Key? key, required this.ingredient, required this.leftAmount, required this.progress, required this.progressColor, required this.width}) : super(key: key);
 
-  const _RadialProgress({Key? key, required this.height, required this.width})
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          ingredient.toUpperCase(),
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              height: 10,
+              width: width,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                    Radius.circular(5),
+                ),
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(width: 10),
+             Text(
+                  '${leftAmount}g left',
+              ),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class _RadialProgress extends StatelessWidget {
+  final double height, width, progress;
+
+  const _RadialProgress({Key? key, required this.height, required this.width, required this.progress})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: _RadialPainter(progress: 0.7),
+      painter: _RadialPainter(
+          progress: 0.7,
+      ),
       child: Container(
         height: height,
         width: width,
+          child: Center(
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                    text: '1731',
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF200087),
+                    ),
+                  ),
+                  TextSpan(
+                    text: '\n',
+                  ),
+                  TextSpan(
+                    text: 'kcal left',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF200087),
+                    ),
+                  )
+                ]
+              ),
+            ),
+          ),
       ),
     );
   }
@@ -282,8 +399,14 @@ class _RadialPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
 
     Offset center = Offset(size.width / 2, size.height / 2);
-    canvas.drawArc(Rect.fromCircle(center: center, radius: size.width / 2),
-        startAngle, sweepAngle, useCenter, paint);
+    double relativeProgress = 360 * progress;
+    canvas.drawArc(
+        Rect.fromCircle(center: center, radius: size.width / 2),
+        math.radians(-90),
+        math.radians(-relativeProgress),
+        false,
+        paint,
+    );
   }
 
   @override
