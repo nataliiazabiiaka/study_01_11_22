@@ -14,22 +14,22 @@ class WorkoutScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 16,
+            horizontal: 16,
+            vertical: 16,
           ),
           child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.close,
-                      color: Colors.white,
-                      size: 40,
-                    ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(
+                    Icons.close,
+                    color: Colors.white,
+                    size: 40,
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -41,14 +41,14 @@ class WorkoutScreen extends StatelessWidget {
                     fontSize: 18,
                     color: Colors.white,
                   ),
-              ),
+                ),
                 subtitle: const Text(
                   'Upper Body',
                   style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 24,
-                      color: Colors.white,
-              ),
+                    fontWeight: FontWeight.w800,
+                    fontSize: 24,
+                    color: Colors.white,
+                  ),
                 ),
                 trailing: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,7 @@ class WorkoutScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: const [
                         Icon(
-                            Icons.access_time,
+                          Icons.access_time,
                           color: Colors.white30,
                         ),
                         SizedBox(width: 5),
@@ -66,7 +66,7 @@ class WorkoutScreen extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.white70,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16
+                            fontSize: 16,
                           ),
                         ),
                       ],
@@ -83,9 +83,9 @@ class WorkoutScreen extends StatelessWidget {
                         Text(
                           'Easy',
                           style: TextStyle(
-                              color: Colors.white70,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16
+                            color: Colors.white70,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
                           ),
                         ),
                       ],
@@ -94,7 +94,7 @@ class WorkoutScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              for(int i = 0; i < upperBody.length; i++)
+              for (int i = 0; i < upperBody.length; i++)
                 Column(
                   children: [
                     for (int j = 0; j < upperBody[i].length; j++)
@@ -119,15 +119,15 @@ class WorkoutScreen extends StatelessWidget {
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 22,
-                            fontWeight: FontWeight.w600
+                            fontWeight: FontWeight.w600,
                           ),
-                      ),
+                        ),
                         subtitle: Text(
                           upperBody[i][j].instruction,
                           style: const TextStyle(
-                              color: Colors.white70,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400
+                            color: Colors.white70,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),

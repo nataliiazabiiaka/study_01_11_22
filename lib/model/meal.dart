@@ -1,18 +1,17 @@
-import 'package:flutter/material.dart';
-
 class Meal {
   final String mealTime, name, imagePath, kiloCaloriesBurnt, timeTaken;
   final String preparation;
   final List ingredients;
 
-  Meal(
-      {required this.mealTime,
-      required this.name,
-      required this.imagePath,
-      required this.kiloCaloriesBurnt,
-      required this.timeTaken,
-      required this.preparation,
-      required this.ingredients});
+  Meal({
+    required this.mealTime,
+    required this.name,
+    required this.imagePath,
+    required this.kiloCaloriesBurnt,
+    required this.timeTaken,
+    required this.preparation,
+    required this.ingredients,
+  });
 }
 
 final meals = [
@@ -21,7 +20,7 @@ final meals = [
     name: 'Fruit Granola',
     kiloCaloriesBurnt: '271',
     timeTaken: '10',
-    imagePath: 'assets/fruit_granola.jpg',
+    imagePath: 'assets/fruit_granola.jpeg',
     ingredients: [
       '1 cup of granola',
       '1 banana',
@@ -44,7 +43,7 @@ Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Vitae aliquet nec
     name: 'Pesto Pasta',
     kiloCaloriesBurnt: '612',
     timeTaken: '15',
-    imagePath: 'assets/pesto_pasta.jpg',
+    imagePath: 'assets/pesto_pasta.jpeg',
     ingredients: [
       '1 cup of granola',
       '1 banana',
@@ -52,7 +51,7 @@ Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Vitae aliquet nec
       '1 tbsp of honey',
     ],
     preparation:
-    '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum tempus egestas sed sed risus pretium quam. Platea dictumst quisque sagittis purus sit. Senectus et netus et malesuada fames ac turpis egestas sed. Nibh cras pulvinar mattis nunc. Amet consectetur adipiscing elit duis tristique. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Lectus proin nibh nisl condimentum id venenatis. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Enim tortor at auctor urna. In dictum non consectetur a.
+        '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum tempus egestas sed sed risus pretium quam. Platea dictumst quisque sagittis purus sit. Senectus et netus et malesuada fames ac turpis egestas sed. Nibh cras pulvinar mattis nunc. Amet consectetur adipiscing elit duis tristique. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Lectus proin nibh nisl condimentum id venenatis. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Enim tortor at auctor urna. In dictum non consectetur a.
     
 Sit amet risus nullam eget. Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Quis risus sed vulputate odio ut enim blandit volutpat maecenas. Turpis cursus in hac habitasse platea dictumst quisque sagittis. Eget mi proin sed libero. Non diam phasellus vestibulum lorem sed risus ultricies tristique. Neque viverra justo nec ultrices dui. Gravida neque convallis a cras semper. Morbi tempus iaculis urna id volutpat lacus laoreet non. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Amet mattis vulputate enim nulla aliquet. Lectus urna duis convallis convallis tellus. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Diam ut venenatis tellus in metus vulputate eu scelerisque felis. Adipiscing vitae proin sagittis nisl. Sed libero enim sed faucibus turpis in. Pulvinar mattis nunc sed blandit. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Sed id semper risus in hendrerit.
 
@@ -67,7 +66,7 @@ Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Vitae aliquet nec
     name: 'Keto Snack',
     kiloCaloriesBurnt: '414',
     timeTaken: '16',
-    imagePath: 'assets/keto_snack.jpg',
+    imagePath: 'assets/keto_snack.jpeg',
     ingredients: [
       '1 cup of granola',
       '1 banana',
@@ -75,7 +74,7 @@ Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Vitae aliquet nec
       '1 tbsp of honey',
     ],
     preparation:
-    '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum tempus egestas sed sed risus pretium quam. Platea dictumst quisque sagittis purus sit. Senectus et netus et malesuada fames ac turpis egestas sed. Nibh cras pulvinar mattis nunc. Amet consectetur adipiscing elit duis tristique. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Lectus proin nibh nisl condimentum id venenatis. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Enim tortor at auctor urna. In dictum non consectetur a.
+        '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum tempus egestas sed sed risus pretium quam. Platea dictumst quisque sagittis purus sit. Senectus et netus et malesuada fames ac turpis egestas sed. Nibh cras pulvinar mattis nunc. Amet consectetur adipiscing elit duis tristique. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Lectus proin nibh nisl condimentum id venenatis. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Enim tortor at auctor urna. In dictum non consectetur a.
     
 Sit amet risus nullam eget. Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Quis risus sed vulputate odio ut enim blandit volutpat maecenas. Turpis cursus in hac habitasse platea dictumst quisque sagittis. Eget mi proin sed libero. Non diam phasellus vestibulum lorem sed risus ultricies tristique. Neque viverra justo nec ultrices dui. Gravida neque convallis a cras semper. Morbi tempus iaculis urna id volutpat lacus laoreet non. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Amet mattis vulputate enim nulla aliquet. Lectus urna duis convallis convallis tellus. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Diam ut venenatis tellus in metus vulputate eu scelerisque felis. Adipiscing vitae proin sagittis nisl. Sed libero enim sed faucibus turpis in. Pulvinar mattis nunc sed blandit. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Sed id semper risus in hendrerit.
 

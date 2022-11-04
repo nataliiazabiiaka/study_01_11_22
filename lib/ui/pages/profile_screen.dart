@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:study_01_11_22/model/meal.dart';
-import 'package:study_01_11_22/ui/pages/meal_detail_screen.dart';
+import '../../model/meal.dart';
+import 'meal_detail_screen.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
 import 'package:intl/intl.dart';
 import 'workout_screen.dart';
@@ -74,7 +74,11 @@ class ProfileScreen extends StatelessWidget {
               child: Container(
                 color: Colors.white,
                 padding: const EdgeInsets.only(
-                    top: 40, left: 32, right: 16, bottom: 10),
+                  top: 40,
+                  left: 32,
+                  right: 16,
+                  bottom: 10,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -117,7 +121,7 @@ class ProfileScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             _IngredientProgress(
-                              ingredient: "Protein",
+                              ingredient: 'Protein',
                               progress: 0.3,
                               progressColor: Colors.green,
                               leftAmount: 72,
@@ -127,7 +131,7 @@ class ProfileScreen extends StatelessWidget {
                               height: 10,
                             ),
                             _IngredientProgress(
-                              ingredient: "Carbs",
+                              ingredient: 'Carbs',
                               progress: 0.2,
                               progressColor: Colors.red,
                               leftAmount: 252,
@@ -137,7 +141,7 @@ class ProfileScreen extends StatelessWidget {
                               height: 10,
                             ),
                             _IngredientProgress(
-                              ingredient: "Fat",
+                              ingredient: 'Fat',
                               progress: 0.1,
                               progressColor: Colors.yellow,
                               leftAmount: 61,
@@ -203,7 +207,10 @@ class ProfileScreen extends StatelessWidget {
                           onTap: openContainer,
                           child: Container(
                             margin: const EdgeInsets.only(
-                                bottom: 10, left: 32, right: 32),
+                              bottom: 10,
+                              left: 32,
+                              right: 32,
+                            ),
                             decoration: const BoxDecoration(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(30),
@@ -321,14 +328,14 @@ class _IngredientProgress extends StatelessWidget {
   final double progress, width;
   final Color progressColor;
 
-  const _IngredientProgress(
-      {Key? key,
-      required this.ingredient,
-      required this.leftAmount,
-      required this.progress,
-      required this.progressColor,
-      required this.width})
-      : super(key: key);
+  const _IngredientProgress({
+    Key? key,
+    required this.ingredient,
+    required this.leftAmount,
+    required this.progress,
+    required this.progressColor,
+    required this.width,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -384,12 +391,12 @@ class _IngredientProgress extends StatelessWidget {
 class _RadialProgress extends StatelessWidget {
   final double height, width, progress;
 
-  const _RadialProgress(
-      {Key? key,
-      required this.height,
-      required this.width,
-      required this.progress})
-      : super(key: key);
+  const _RadialProgress({
+    Key? key,
+    required this.height,
+    required this.width,
+    required this.progress,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

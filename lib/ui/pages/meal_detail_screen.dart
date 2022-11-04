@@ -65,9 +65,10 @@ class MealDetailScreen extends StatelessWidget {
                           Text(
                             '${meal.kiloCaloriesBurnt} kcal',
                             style: const TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16),
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                            ),
                           ),
                         ],
                       ),
@@ -114,7 +115,7 @@ class MealDetailScreen extends StatelessWidget {
                     children: [
                       for (int i = 0; i < meal.ingredients.length; i++)
                         Padding(
-                            padding: const EdgeInsets.only(bottom: 6),
+                          padding: const EdgeInsets.only(bottom: 6),
                           child: Text(
                             meal.ingredients[i],
                             style: const TextStyle(
@@ -139,7 +140,8 @@ class MealDetailScreen extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16, bottom: 32),
+                  padding:
+                      const EdgeInsets.only(left: 16, right: 16, bottom: 32),
                   child: Text(
                     meal.preparation,
                     style: const TextStyle(
