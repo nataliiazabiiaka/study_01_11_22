@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:study_01_11_22/model/upper_body_workout.dart';
+import '../../model/upper_body_workout.dart';
 
 class WorkoutScreen extends StatelessWidget {
   const WorkoutScreen({Key? key}) : super(key: key);

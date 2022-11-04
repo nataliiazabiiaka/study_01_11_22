@@ -404,27 +404,27 @@ class _RadialProgress extends StatelessWidget {
           child: RichText(
             textAlign: TextAlign.center,
             text: const TextSpan(
-                children: [
-              TextSpan(
-                text: '1731',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFF200087),
+              children: [
+                TextSpan(
+                  text: '1731',
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF200087),
+                  ),
                 ),
-              ),
-              TextSpan(
-                text: '\n',
-              ),
-              TextSpan(
-                text: 'kcal left',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xFF200087),
+                TextSpan(
+                  text: '\n',
                 ),
-              )
-            ],
+                TextSpan(
+                  text: 'kcal left',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF200087),
+                  ),
+                )
+              ],
             ),
           ),
         ),
@@ -493,15 +493,33 @@ class _MealCard extends StatelessWidget {
             children: [
               Flexible(
                 fit: FlexFit.tight,
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(20),
+                child: OpenContainer(
+                  closedShape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
                   ),
-                  child: Image.asset(
-                    meal.imagePath,
-                    width: 150,
-                    fit: BoxFit.fill,
-                  ),
+                  transitionDuration: const Duration(milliseconds: 1000),
+                  openBuilder: (context, _) {
+                    return MealDetailScreen(
+                      meal: meal,
+                    );
+                  },
+                  closedBuilder: (context, openContainer) {
+                    return GestureDetector(
+                      onTap: openContainer,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        child: Image.asset(
+                          meal.imagePath,
+                          width: 150,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
               Flexible(
